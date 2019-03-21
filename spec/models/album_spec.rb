@@ -39,7 +39,7 @@ RSpec.describe Album, type: :model do
   end
 
   # Associations
-  it 'renders the purchase belonging to an album' do
+  it 'returns the purchase belonging to an album' do
     user = build_user
     album = build_album
 

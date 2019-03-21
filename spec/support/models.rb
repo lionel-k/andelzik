@@ -2,7 +2,7 @@
 
 module Models
   def build_album(title = 'Collabo', performer = 'P Square', cost = 20)
-    Album.create!(title, performer, cost)
+    Album.create!(title: title, performer: performer, cost: cost)
   end
 
   def build_random_album
@@ -10,7 +10,7 @@ module Models
   end
 
   def build_user(name = 'Mandela')
-    User.create!(name)
+    User.create!(name: name)
   end
 
   def build_random_user
