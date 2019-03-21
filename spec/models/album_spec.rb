@@ -6,11 +6,11 @@ RSpec.describe Album, type: :model do
   # Validations
   context 'with valid data' do
     it 'should create an album with valid data' do
-      album = build_album
+      album = build_custom_album(title: 'Komera', performer: 'Kidum', cost: 100)
 
-      expect(album.title).to eq('Collabo')
-      expect(album.performer).to eq('P Square')
-      expect(album.cost).to eq(20)
+      expect(album.title).to eq('Komera')
+      expect(album.performer).to eq('Kidum')
+      expect(album.cost).to eq(100)
     end
   end
 
