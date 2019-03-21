@@ -65,21 +65,16 @@ RSpec.describe AlbumsController, type: :controller do
 
   context '#show' do
     it 'displays an album' do
-      album = build_album
+      album = build_custom_album(title: 'The title',
+                                 performer: 'the performer', cost: 12)
 
       get 'show', params: { id: album.id }
 
       json = JSON.parse(response.body)
-      expect(json['title']).to eq('Appetite for Destruction')
-      expect(json['performer']).to eq('Guns & Roses')
-      expect(json['cost']).to eq(20)
+      expect(json['title']).to eq('The title')
+      expect(json['performer']).to eq('the performer')
+      expect(json['cost']).to eq(12)
       expect(response).to have_http_status(200)
     end
-  end
-
-  def build_album
-    Album.create!(title: 'Appetite for Destruction',
-                  performer: 'Guns & Roses',
-                  cost: 20)
   end
 end
