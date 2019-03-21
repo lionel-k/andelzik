@@ -1,24 +1,34 @@
-# README
+# Andelzik
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**Andelzik** is an online music store API built as code challenge for Andela interview.
 
-Things you may want to cover:
+The API has 6 endpoints:
 
-* Ruby version
+- `GET https://andelzik.herokuapp.com/albums`
+- `POST https://andelzik.herokuapp.com/albums`
+  ```json
+  required params {"title": string, "performer": string, "cost": integer }
+  ```
+- `GET https://andelzik.herokuapp.com/albums/:id`
+- `PUT https://andelzik.herokuapp.com/albums/:id`
+  ```json
+  params {"title": string, "performer": string, "cost": integer }
+  ```
+ - `DELETE https://andelzik.herokuapp.com/albums/:id`
+- `POST https://andelzik.herokuapp.com/purchases`
+    ```json
+    required params {"user_id": integer, "album_id": integer }
+    ```
 
-* System dependencies
+### Continous Integration
+Circle CI is used as a service for continuous integration and delivery.
 
-* Configuration
+### Deployment
 
-* Database creation
+The app is deployed, up and running on Heroku at [this link](https://andelzik.herokuapp.com/)
 
-* Database initialization
+The automatic deploy is done everytime a branch pass the tests and get merge into master.
 
-* How to run the test suite
+### Code Quality
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Code Quality is monitored with the `gem simplecov` and the CodeClimate service.
