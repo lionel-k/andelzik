@@ -6,10 +6,10 @@ RSpec.describe User, type: :model do
   # Validations
   context 'With valid data' do
     it 'should create a new user' do
-      user = build_user('Mandela')
+      user = build_custom_user(name: 'Obama')
 
       expect(user.persisted?).to be_truthy
-      expect(user.name).to eq('Mandela')
+      expect(user.name).to eq('Obama')
     end
   end
 
