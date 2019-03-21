@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
 module Models
-  def build_album(title = 'Collabo', performer = 'P Square', cost = 20)
-    Album.create!(title: title, performer: performer, cost: cost)
+  def build_album(*)
+    Album.create!(title: 'Collabo', performer: 'P Square', cost: 20)
   end
 
   def build_random_album
     build_album(Faker::Music.album, Faker::Name.name, Random.rand(100))
   end
 
-  def build_user(name = 'Mandela')
-    User.create!(name: name)
+  def build_user(*)
+    User.create!(name: 'Mandela')
   end
 
   def build_random_user

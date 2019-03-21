@@ -15,7 +15,7 @@ RSpec.describe User, type: :model do
 
   context 'With invalid data' do
     it 'should raise an error' do
-      expect { User.create! }.to raise_error(ActiveRecord::NotNullViolation)
+      expect { User.create! }.to raise_error(ActiveRecord::RecordInvalid)
     end
 
     it 'considers the object as invalid with empty name' do

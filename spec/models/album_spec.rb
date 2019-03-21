@@ -8,8 +8,8 @@ RSpec.describe Album, type: :model do
     it 'should create an album with valid data' do
       album = build_album
 
-      expect(album.title).to eq('Black and Blue')
-      expect(album.performer).to eq('The Rolling Stones')
+      expect(album.title).to eq('Collabo')
+      expect(album.performer).to eq('P Square')
       expect(album.cost).to eq(20)
     end
   end
@@ -25,6 +25,11 @@ RSpec.describe Album, type: :model do
       expect(album3).not_to be_valid
     end
 
+    it 'should not allow blank values' do
+      album = Album.new(title: '', performer: '', cost: 12)
+      expect(album).not_to be_valid
+    end
+
     it 'should check if cost is positive' do
       album = Album.new(title: 'The album',
                         performer: 'The performer',
@@ -34,7 +39,7 @@ RSpec.describe Album, type: :model do
     end
 
     it 'should raise an error' do
-      expect { Album.create! }.to raise_error(ActiveRecord::NotNullViolation)
+      expect { Album.create! }.to raise_error(ActiveRecord::RecordInvalid)
     end
   end
 
