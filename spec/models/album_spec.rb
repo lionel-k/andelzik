@@ -4,7 +4,6 @@ require 'rails_helper'
 
 RSpec.describe Album, type: :model do
   # Validations
-
   context 'with valid data' do
     it 'should create an album with valid data' do
       album = build_album
@@ -16,7 +15,7 @@ RSpec.describe Album, type: :model do
   end
 
   context 'with invalid data' do
-    it 'should not create an album with missing data' do
+    it 'considers the object as invalid' do
       album1 = Album.new(title: 'The album')
       album2 = Album.new(performer: 'The album')
       album3 = Album.new(cost: 23)
@@ -55,21 +54,5 @@ RSpec.describe Album, type: :model do
     album_purchases = Purchase.where(album: album)
 
     expect(album.purchases).to eq(album_purchases)
-  end
-
-  def build_album
-    Album.create(title: 'Collabo',
-                 performer: 'P Square',
-                 cost: 20)
-  end
-
-  def build_random_album
-    Album.create(title: Faker::Music.album,
-                 performer: Faker::Name.name,
-                 cost: 20)
-  end
-
-  def build_user
-    User.create(name: 'Mandela')
   end
 end
