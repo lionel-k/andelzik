@@ -1,3 +1,7 @@
+[![CircleCI](https://circleci.com/gh/lionel-k/andelzik.svg?style=svg)](https://circleci.com/gh/lionel-k/andelzik)
+[![Maintainability](https://api.codeclimate.com/v1/badges/487952d798a176348a40/maintainability)](https://codeclimate.com/github/lionel-k/andelzik/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/487952d798a176348a40/test_coverage)](https://codeclimate.com/github/lionel-k/andelzik/test_coverage)
+
 # Andelzik
 
 **Andelzik** is an online music store API built as code challenge for Andela interview.
