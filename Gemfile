@@ -16,6 +16,7 @@ group :development, :test do
   gem 'faker'
   gem 'rspec-its', '~> 1.2.0'
   gem 'rspec-rails', '~> 3.6.0'
+  gem 'simplecov', '~> 0.16.1', require: false
 end
 
 group :development do
