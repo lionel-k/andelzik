@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe AlbumsController, type: :controller do
   context '#create' do
     it 'creates an album with valid data' do
-      put :create, params: {
+      post :create, params: {
                           album: {
                                   title: 'The album',
                                   performer: 'The guy',
