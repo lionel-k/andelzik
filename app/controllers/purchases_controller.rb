@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class PurchasesController < ActionController::Base
+class PurchasesController < ApplicationController
   def create
     render json: Purchase.create!(purchase_params), status: :ok
   end

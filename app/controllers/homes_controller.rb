@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class HomesController < ActionController::Base
+class HomesController < ApplicationController
   def index
     render json: data, status: :ok
   end
