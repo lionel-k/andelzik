@@ -9,12 +9,8 @@ jobs:
           RAILS_ENV: test
           PGHOST: 127.0.0.1
           PGUSER: root
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/postgres:9.4
-
-    # Service container image available at `host: localhost`
+          CC_TEST_REPORTER_ID: e4637b22697e48f2d978f3ac640f4ceba87838e52f4306458d88df1d5e8f1c0e
+          COVERAGE: true
 
       - image: circleci/postgres:9.6.2-alpine
         environment:
@@ -38,6 +34,12 @@ jobs:
           command: |
             bundle install --jobs=4 --retry=3 --path vendor/bundle
 
+      - run:
+          name: Install Code Climate Test Reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+
       - save_cache:
           paths:
             - ./vendor/bundle
@@ -53,10 +55,15 @@ jobs:
           command: |
             mkdir /tmp/test-results
             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb")"
-
+            ./cc-test-reporter before-build
             bundle exec rspec \
               --format progress \
               $TEST_FILES
+
+      - run:
+          name: Code Climate Test Coverage
+          command: |
+            ./cc-test-reporter format-coverage -t simplecov -o "coverage/codeclimate.$CIRCLE_NODE_INDEX.json"
 
       # collect reports
       - store_test_results:
@@ -64,3 +71,8 @@ jobs:
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
+      - deploy:
+          command: |
+            ./cc-test-reporter sum-coverage --output - --parts $CIRCLE_NODE_TOTAL coverage/codeclimate.*.json | ./cc-test-reporter upload-coverage --debug --input -
+
+
