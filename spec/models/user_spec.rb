@@ -29,16 +29,28 @@ RSpec.describe User, type: :model do
     user = build_user
     album = build_album
 
-    10.times do
+    5.times do
       Purchase.create!(album: album, user: build_random_user)
-    end
-
-    3.times do
       Purchase.create!(album: album, user: user)
     end
 
     user_purchases = Purchase.where(user: user)
 
     expect(user.purchases).to eq(user_purchases)
+    expect(user.purchases.count).to eq(5)
+  end
+
+  describe '#total_purchases' do
+    it 'returns the numbers of purchases done by the user' do
+      album = build_album
+      user = build_user
+
+      5.times do
+        Purchase.create(album: album, user: user)
+        Purchase.create(album: album, user: build_random_user)
+      end
+
+      expect(user.total_purchases).to eq(5)
+    end
   end
 end

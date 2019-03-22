@@ -2,7 +2,7 @@
 
 class Purchase < ApplicationRecord
   belongs_to :album
-  belongs_to :user
+  belongs_to :user, counter_cache: :total_purchases
 
   validates :user_id, :album_id, presence: true
 
