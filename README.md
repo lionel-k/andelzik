@@ -29,7 +29,8 @@ The API has 7 endpoints:
   ```
 
 ### Continous Integration
-Circle CI is used as a service for continuous integration and delivery.
+
+[CircleCI](https://circleci.com/) is used as a service for continuous integration and delivery.
 
 ### Deployment
 
@@ -39,7 +40,11 @@ The automatic deploy is done everytime a branch pass the tests and is merged int
 
 ### Code Quality
 
-Code Quality is monitored with the `gem simplecov` and the CodeClimate service.
+Code Quality is monitored with the `gem simplecov` and the [CodeClimate](https://codeclimate.com/) service.
+
+Coding style is checked with the `gem rubocop`.
+
+[RuboCop](https://github.com/rubocop-hq/rubocop) is a Ruby static code analyzer and code formatter. Out of the box it enforce many of the guidelines and best practices.
 
 ### Run the app in local environment
 
@@ -52,7 +57,7 @@ Code Quality is monitored with the `gem simplecov` and the CodeClimate service.
 
 ### Monitoring
 
-AppSignal service is used to catch errors, track performance, monitor hosts, detect anomalies in production. The configuration is done with the `gem appsignal`
+[AppSignal](https://appsignal.com/) service is used to catch errors, track performance, monitor hosts, detect anomalies in production. The configuration is done with the `gem appsignal`
 
 ### Database schema
 
