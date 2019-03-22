@@ -60,4 +60,39 @@ RSpec.describe Album, type: :model do
 
     expect(album.purchases).to eq(album_purchases)
   end
+
+  it 'should have last_purchased_at and last_purchased_by at nil' do
+    album = build_album
+
+    expect(album.last_purchased_at).to be_nil
+    expect(album.last_purchased_by).to be_nil
+  end
+
+  it 'updates last_purchased_at of the album' do
+    album = build_album
+    user = build_user
+    Purchase.create!(album: album, user: user)
+
+    expect(album.last_purchased_at).not_to be_nil
+  end
+
+  it 'updates last_purchased_by of the album' do
+    album = build_album
+    user = build_user
+    Purchase.create!(album: album, user: user)
+
+    expect(album.last_purchased_by).to eq(user.name)
+  end
+
+  describe '#purchased_by!' do
+    it 'updates the last_purchased columns' do
+      album = build_album
+      user = build_user
+
+      album.purchased_by!(user)
+
+      expect(album.last_purchased_by).to eq(user.name)
+      expect(album.last_purchased_at).not_to be_nil
+    end
+  end
 end

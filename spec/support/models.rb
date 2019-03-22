@@ -12,7 +12,7 @@ module Models
   def build_random_album
     build_custom_album(title: Faker::Music.album,
                        performer: Faker::Name.name,
-                       cost: Random.rand(100))
+                       cost: Random.rand(10..100))
   end
 
   def build_custom_user(name:)
