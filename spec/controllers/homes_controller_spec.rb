@@ -28,7 +28,8 @@ RSpec.describe HomesController, type: :controller do
         "GET #{root_path}/albums/:id",
         "PUT #{root_path}/albums/:id",
         "DELETE #{root_path}/albums/:id",
-        "POST #{root_path}/purchases"
+        "POST #{root_path}/purchases",
+        "GET #{root_path}/search"
       ]
 
       expect(json['endpoints']).to eq(endpoints)
@@ -37,7 +38,7 @@ RSpec.describe HomesController, type: :controller do
     it 'displays the total number of albums, purchases and users' do
       3.times do |i|
         Album.create!(title: "title-#{i}",
-                      performer: "performer-#{i}", cost: Random.rand(100))
+                      performer: "performer-#{i}", cost: Random.rand(10..100))
       end
 
       4.times do |i|
@@ -48,10 +49,17 @@ RSpec.describe HomesController, type: :controller do
         Purchase.create!(album: Album.all.sample, user: User.all.sample)
       end
 
+      6.times do |i|
+        Product.create!(name: "name-#{i}",
+                        category: "category-#{i}",
+                        price: Random.rand(10..100))
+      end
+
       stats = {
         numbers_of_albums: 3,
         numbers_of_users: 4,
-        numbers_of_purchases: 5
+        numbers_of_purchases: 5,
+        numbers_of_products: 6
       }.transform_keys!(&:to_s)
 
       get :index
