@@ -5,9 +5,10 @@ require 'rails_helper'
 RSpec.describe Album, type: :model do
   # Validations
   context 'with valid data' do
-    it 'should create an album with valid data' do
+    it 'should create an album' do
       album = build_custom_album(title: 'Komera', performer: 'Kidum', cost: 100)
 
+      expect(album.persisted?).to be_truthy
       expect(album.title).to eq('Komera')
       expect(album.performer).to eq('Kidum')
       expect(album.cost).to eq(100)
