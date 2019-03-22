@@ -10,6 +10,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
 gem 'faker', '~> 1.9.3'
+gem 'appsignal'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
