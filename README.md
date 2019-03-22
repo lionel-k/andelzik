@@ -6,7 +6,7 @@
 
 **Andelzik** is an online music store API built as code challenge for Andela interview.
 
-The API has 6 endpoints:
+The API has 7 endpoints:
 
 - `GET https://andelzik.herokuapp.com/albums`
 - `POST https://andelzik.herokuapp.com/albums`
@@ -35,7 +35,7 @@ Circle CI is used as a service for continuous integration and delivery.
 
 The app is deployed, up and running on Heroku at [this link](https://andelzik.herokuapp.com/)
 
-The automatic deploy is done everytime a branch pass the tests and get merge into master.
+The automatic deploy is done everytime a branch pass the tests and is merged into master.
 
 ### Code Quality
 
@@ -48,14 +48,12 @@ Code Quality is monitored with the `gem simplecov` and the CodeClimate service.
 - `bundle`
 - `rails db:create`
 - `rails db:migrate`
-- `rails db:seed` (optinal) - To populate the database with data
-
-### Database schema
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/lionel-k/andelzik/master/public/database-schema.png" alt="Database schema"/>
-</p>
+- `rails db:seed` (optional) - To populate the database with data
 
 ### Monitoring
 
-AppSignal service is used to catch errors, track performance, monitor hosts, detect anomalies in production. The configuration is done with the `gem appsignal
+AppSignal service is used to catch errors, track performance, monitor hosts, detect anomalies in production. The configuration is done with the `gem appsignal`
+
+### Database schema
+
+![alt text](https://raw.githubusercontent.com/lionel-k/andelzik/master/public/database-schema.png)
