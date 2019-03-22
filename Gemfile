@@ -9,13 +9,14 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
+gem 'faker', '~> 1.9.3'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'database_cleaner', '~> 1.7.0'
-  gem 'faker'
   gem 'rspec-its', '~> 1.2.0'
   gem 'rspec-rails', '~> 3.6.0'
+  gem 'simplecov', '~> 0.16.1', require: false
 end
 
 group :development do
