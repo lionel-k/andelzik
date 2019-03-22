@@ -71,7 +71,7 @@ RSpec.describe Album, type: :model do
   it 'updates last_purchased_at of the album' do
     album = build_album
     user = build_user
-    Purchase.create(album: album, user: user)
+    Purchase.create!(album: album, user: user)
 
     expect(album.last_purchased_at).not_to be_nil
   end
@@ -79,7 +79,7 @@ RSpec.describe Album, type: :model do
   it 'updates last_purchased_by of the album' do
     album = build_album
     user = build_user
-    Purchase.create(album: album, user: user)
+    Purchase.create!(album: album, user: user)
 
     expect(album.last_purchased_by).to eq(user.name)
   end

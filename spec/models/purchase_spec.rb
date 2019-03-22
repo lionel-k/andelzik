@@ -26,4 +26,13 @@ RSpec.describe Purchase, type: :model do
       expect(purchase2).not_to be_valid
     end
   end
+
+  it 'render the timestamp when the purchased were created_at' do
+    album = build_album
+    user = build_user
+
+    purchase = Purchase.create(album: album, user: user)
+
+    expect(purchase.created_at).not_to be_nil
+  end
 end
