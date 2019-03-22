@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class AlbumsController < ActionController::Base
+class AlbumsController < ApplicationController
   def index
     render_json(Album.all)
   end
