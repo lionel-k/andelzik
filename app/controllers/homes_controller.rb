@@ -19,7 +19,8 @@ class HomesController < ApplicationController
       "GET #{root_path}/albums/:id",
       "PUT #{root_path}/albums/:id",
       "DELETE #{root_path}/albums/:id",
-      "POST #{root_path}/purchases"
+      "POST #{root_path}/purchases",
+      "GET #{root_path}/search"
     ]
     { endpoints: data }
   end
@@ -28,7 +29,8 @@ class HomesController < ApplicationController
     data = {
       numbers_of_albums: Album.count,
       numbers_of_users: User.count,
-      numbers_of_purchases: Purchase.count
+      numbers_of_purchases: Purchase.count,
+      numbers_of_products: Product.count
     }
     { stats: data }
   end
