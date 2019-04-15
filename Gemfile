@@ -5,12 +5,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.4'
 
+gem 'appsignal'
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'faker', '~> 1.9.3'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
-gem 'faker', '~> 1.9.3'
-gem 'appsignal'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
