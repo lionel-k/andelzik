@@ -5,5 +5,5 @@ Rails.application.routes.draw do
 
   resources :albums, only: [:index, :show, :create, :update, :destroy]
   resources :purchases, only: [:create]
-  get '/search/', to: 'products#search', as: 'search'
+  get '/search', to: 'products#search', as: 'search'
 end
