@@ -53,7 +53,7 @@ FrozenStringLiteralComment:
 SymbolArray:
   Enabled: false
 # forces weird looking syntax on hashes as last argument of method
-IndentHash:
+IndentFirstHashElement:
   Enabled: false
 # forces weird looking syntax on closing of parenthesis of multi-line methods
 ClosingParenthesisIndentation:

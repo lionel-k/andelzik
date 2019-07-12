@@ -15,8 +15,10 @@ gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'database_cleaner', '~> 1.7.0'
+  gem 'factory_bot_rails'
   gem 'rspec-its', '~> 1.2.0'
   gem 'rspec-rails', '~> 3.6.0'
+  gem 'shoulda-matchers'
   gem 'simplecov', '~> 0.16.1', require: false
 end
 
