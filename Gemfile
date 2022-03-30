@@ -9,7 +9,7 @@ gem 'appsignal'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'faker', '~> 1.9.3'
 gem 'pg', '>= 0.18', '< 2.0'
-gem 'puma', '~> 3.12'
+gem 'puma', '~> 4.3'
 gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
 
 group :development, :test do
